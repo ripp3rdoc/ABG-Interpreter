@@ -1,44 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
     <title>ABG Interpreter</title>
-</head>
+  </head>
 
-
-<body>
+  <body>
     <div class="container">
-        <h1 class="text-center mt-4">ABG Intepreter🔬🩸</h1>
-        <p class="text-center"><i>Arterial blood gas analysis.</i></p>
-        <form>
+      <h1 class="text-center mt-4">ABG Intepreter🔬🩸</h1>
+      <p class="text-center"><i>Arterial blood gas analysis.</i></p>
+      <form onsubmit="getValues()">
         <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default" >pH</span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="7.35 - 7.45" required>
+          <span class="input-group-text" id="inputGroup-sizing-default"
+            >pH</span
+          >
+          <input
+            id="ph"
+            type="number"
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+            placeholder="7.35 - 7.45"
+            required
+          />
         </div>
         <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">CO<sub>2</sub></span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="35 - 45" required>
+          <span class="input-group-text" id="inputGroup-sizing-default"
+            >CO<sub>2</sub></span
+          >
+          <input
+            id="co2"
+            type="number"
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+            placeholder="35 - 45"
+            required
+          />
         </div>
         <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">HCO<sub>3</sub></span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="22 - 26" required>
+          <span class="input-group-text" id="inputGroup-sizing-default"
+            >HCO<sub>3</sub></span
+          >
+          <input
+            id="hco3"
+            type="number"
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+            placeholder="22 - 26"
+            required
+          />
         </div>
         <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">PaO<sub>2</sub></span>
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="0 - 100 [optional]" >
+          <span class="input-group-text" id="inputGroup-sizing-default"
+            >PaO<sub>2</sub></span
+          >
+          <input
+            id="pao2"
+            type="number"
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+            placeholder="0 - 100 [optional]"
+          />
         </div>
-        <br>
-        <input type="submit" value="Calculate" class="btn btn-light position-relative top-50 start-50 translate-middle">
-    </form>
+        <br />
+        <input
+          type="submit"
+          value="Calculate"
+          class="btn btn-light position-relative top-50 start-50 translate-middle"
+        />
+      </form>
+      <div id="results" class="text-center pb-3"></div>
     </div>
 
     <script src="js/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
