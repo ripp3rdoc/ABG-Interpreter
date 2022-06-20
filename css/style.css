@@ -9,9 +9,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 60vh;
+  height: 100vh;
   margin: 0;
   transition: background 0.2s linear;
+}
+
+div.container {
+  position: absolute;
+  top: 10px;
 }
 
 body.dark {
