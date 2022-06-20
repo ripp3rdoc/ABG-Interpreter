@@ -17,9 +17,9 @@
 
   <body>
     <div class="container">
-      <h1 class="text-center mt-4">ABG Intepreter🔬🩸</h1>
+      <h1 class="text-center mt-4">ABG Interpreter🔬🩸</h1>
       <p class="text-center"><i>Arterial blood gas analysis.</i></p>
-      <form id="form" onsubmit="calculateOxygen(); ">
+      <form id="form" onsubmit="calculateValues(); calculateOxygen(); ">
         <div class="input-group mb-3">
           <span class="input-group-text" id="inputGroup-sizing-default"
             >pH</span
@@ -27,6 +27,7 @@
           <input
             id="ph"
             type="number"
+            step="0.01"
             class="form-control"
             aria-label="Sizing example input"
             aria-describedby="inputGroup-sizing-default"
@@ -41,6 +42,7 @@
           <input
             id="co2"
             type="number"
+            step="0.01"
             class="form-control"
             aria-label="Sizing example input"
             aria-describedby="inputGroup-sizing-default"
@@ -55,6 +57,7 @@
           <input
             id="hco3"
             type="number"
+            step="0.01"
             class="form-control"
             aria-label="Sizing example input"
             aria-describedby="inputGroup-sizing-default"
@@ -83,8 +86,8 @@
         />
       </form>
       <div id="results" class="text-center pb-3">
-        <p id="resultsAnalysis"></p>
-        <p id="resultsOxygen"></p>
+        <p id="analysisResult"></p>
+        <p id="oxygenResult"></p>
       </div>
     </div>
 

@@ -1,14 +1,11 @@
-function getValues() {
-  // let ph = document.getElementById("ph").value;
-  // let co2 = document.getElementById("co2").value;
-  // let hco3 = document.getElementById("hco3").value;
-  //   let pao2Value = document.getElementById("pao2").value;
-}
+// prevent form from refreshing the page
 var form = document.getElementById("form");
 function handleForm(event) {
   event.preventDefault();
 }
 form.addEventListener("submit", handleForm);
+
+// oxygen gas analysis
 function oxy(pao2Value) {
   console.log("Oxy func: " + pao2Value);
   if (pao2Value >= 80 && pao2Value <= 100) {
@@ -21,61 +18,62 @@ function oxy(pao2Value) {
     return "With severe hypoxemia.";
   }
 }
+// check if oxygen is defined
 function calculateOxygen() {
   let pao2Value = document.getElementById("pao2").value;
   if (pao2Value == 0 || pao2Value == null || pao2Value == undefined) {
-    console.log("if pao2Value null: " + pao2Value);
+    analysisResult = calculateValues();
+    document.getElementById("analysisResult").textContent =
+      "Results:\n" + analysisResult;
     return pao2Value == null;
   } else {
-    console.log("if pao2Value !null: " + pao2Value);
     oxygenResult = oxy(pao2Value);
-
-    document.getElementById("resultsAnalysis").textContent =
-      "1: PaO2 value is: " + oxygenResult;
-    document.getElementById("resultsOxygen").textContent =
-      "2: PaO2 value is: " + oxygenResult;
+    analysisResult = calculateValues();
+    document.getElementById("analysisResult").textContent =
+      "Results:\n" + analysisResult;
+    document.getElementById("oxygenResult").textContent = "" + oxygenResult;
   }
 }
 
-// function calculateValues() {
-//   if (
-//     ph >= 7.35 &&
-//     ph <= 7.45 &&
-//     co2 >= 35 &&
-//     co2 <= 45 &&
-//     hco3 >= 22 &&
-//     hco3 <= 26
-//   ) {
-//     if (pao2 == !null) {
-//       return "The patient is normal " + oxygenResult;
-//     } else {
-//       return "The patient is Normal.";
-//     }
-//   } else if ((ph <= 7.35 && co2 > 45) || (ph < 7.35 && co2 >= 45)) {
-//     if (pao2 == !null) {
-//       return "The patient is normal " + oxygenResult;
-//     } else {
-//       return "Respiratory acidosis";
-//     }
-//   } else if ((ph >= 7.35 && co2 < 45) || (ph > 7.35 && co2 <= 45)) {
-//     if (pao2 == !null) {
-//       return "The patient is normal " + oxygenResult;
-//     } else {
-//       return "respiratory alkalosis";
-//     }
-//   } else if ((ph <= 7.35 && hco3 < 26) || (ph < 7.35 && hco3 <= 26)) {
-//     if (pao2 == !null) {
-//       return "The patient is normal " + oxygenResult;
-//     } else {
-//       return "Metabolic acidosis";
-//     }
-//   } else if ((ph >= 7.35 && hco3 > 26) || (ph > 7.35 && hco3 >= 26)) {
-//     if (pao2 == !null) {
-//       return "The patient is normal " + oxygenResult;
-//     } else {
-//       return "Metabolic alkalosis";
-//     }
-//   } else {
-//     return "Something went wrong" + oxygenResult;
-//   }
-// }
+function calculateValues() {
+  let ph = document.getElementById("ph").value;
+  let co2 = document.getElementById("co2").value;
+  let hco3 = document.getElementById("hco3").value;
+
+  if (ph < 7.35) {
+    if (hco3 > 26) {
+      return "Partially compensated respiratory acidosis.";
+    } else if (hco3 < 22) {
+      if (co2 > 45) {
+        return "Combined respiratory and metabolic acidosis.";
+      } else if (co2 < 35) {
+        return "Partially compensated metabolic acidosis.";
+      } else {
+        return "Uncompensated metabolic acidosis.";
+      }
+    } else {
+      return "Uncompensated respiratory acidosis.";
+    }
+    // second part
+  } else if (ph > 7.45) {
+    if (hco3 > 26) {
+      if (co2 > 45) {
+        return "Partially compensated metabolic alkalosis.";
+      } else if (co2 < 35) {
+        return "Combined respiratory and metabolic alkalosis.";
+      } else {
+        return "Uncompensated metabolic alkalosis.";
+      }
+    } else if (hco3 < 22) {
+      return "Partially compensated respiratory alkalosis.";
+    } else {
+      return "Uncompensated respiratory alkalosis.";
+    }
+  } else if (hco3 > 26) {
+    return "Fully compensated, either respiratory acidosis, metabolic alkalosis, or normal.";
+  } else if (hco3 < 22) {
+    return "Fully compensated, either respiratory alkalosis, metabolic acidosis, or normal.";
+  } else {
+    return "Normal blood gas.";
+  }
+}
