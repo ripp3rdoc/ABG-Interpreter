@@ -5,20 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/style.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
+    />
     <title>ABG Interpreter</title>
   </head>
 
   <body>
     <div class="container">
-      <h1 class="text-center mt-4">ABG Interpreter🔬🩸</h1>
-      <p class="text-center"><i>Arterial blood gas analysis.</i></p>
+      <div>
+        <div class="dark-toggle mt-5">
+          <input type="checkbox" class="checkbox" id="chk" />
+          <label class="label" for="chk">
+            <i class="fa fa-moon"></i>
+            <i class="fa fa-sun"></i>
+            <div class="ball"></div>
+          </label>
+        </div>
+        <h1 class="text-center mt-4">ABG Interpreter🔬🩸</h1>
+        <p class="text-center"><i>Arterial blood gas analysis.</i></p>
+      </div>
       <form id="form" onsubmit="calculateValues(); calculateOxygen(); ">
         <div class="input-group mb-3">
           <span class="input-group-text" id="inputGroup-sizing-default"
@@ -76,11 +90,21 @@
           />
         </div>
         <br />
-        <input
+        <!-- <input
+          role="button"
           type="submit"
           value="Calculate"
-          class="btn btn-light button-scan position-relative top-50 start-50 translate-middle"
-        />
+          class="utton-56 btn btn-light position-relative top-50 start-50 translate-middle"
+        /> -->
+        <button
+          type="submit"
+          form="form"
+          value="Calculate"
+          role="button"
+          class="button-59 dark position-relative top-50 start-50 translate-middle"
+        >
+          Calculate
+        </button>
       </form>
       <div id="results" class="text-center pb-3">
         <p id="analysisResult"></p>
