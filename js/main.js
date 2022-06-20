@@ -21,19 +21,20 @@ function oxy(pao2Value) {
 // check if oxygen is defined
 function calculateOxygen() {
   let pao2Value = document.getElementById("pao2").value;
-  console.log("Oxy func calculateOxygen: " + pao2Value);
-
   if (pao2Value == 0 || pao2Value == null || pao2Value == undefined) {
     analysisResult = calculateValues();
-    document.getElementById("analysisResult").textContent =
-      "Results:\n" + analysisResult;
+    document.getElementById("analysisResult").innerHTML =
+      "<strong>Results:</strong>" + "<br>" + analysisResult;
     return pao2Value == null;
   } else {
     oxygenResult = oxy(pao2Value);
     analysisResult = calculateValues();
-    document.getElementById("analysisResult").textContent =
-      "Results:\n" + analysisResult;
-    document.getElementById("oxygenResult").textContent = "" + oxygenResult;
+    document.getElementById("analysisResult").innerHTML =
+      "<strong>Results:</strong>" +
+      "<br>" +
+      analysisResult +
+      " " +
+      oxygenResult;
   }
 }
 
