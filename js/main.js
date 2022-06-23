@@ -1,3 +1,7 @@
+window.addEventListener("load", () => {
+  registerSW();
+});
+
 // prevent form from refreshing the page
 var form = document.getElementById("form");
 function handleForm(event) {
@@ -24,6 +28,7 @@ function oxy(pao2Value) {
     return " with severe hypoxemia.";
   }
 }
+
 // check if oxygen is defined
 function calculateOxygen() {
   let pao2Value = document.getElementById("pao2").value;
@@ -40,6 +45,7 @@ function calculateOxygen() {
   }
 }
 
+// get the values and calculate do the interpretation.
 function calculateValues() {
   let ph = document.getElementById("ph").value;
   let co2 = document.getElementById("co2").value;
@@ -80,5 +86,15 @@ function calculateValues() {
     return "Fully compensated, either respiratory alkalosis, metabolic acidosis, or normal";
   } else {
     return "Normal blood gas";
+  }
+}
+
+async function registerSW() {
+  if ("serviceWorker" in navigator) {
+    try {
+      await navigator.serviceWorker.register("../sw.js");
+    } catch (e) {
+      console.log("Couldn't register service worker");
+    }
   }
 }

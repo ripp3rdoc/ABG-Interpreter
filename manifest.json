@@ -1,0 +1,25 @@
+{
+    "name": "Arterial Blood Gas Interpreter",
+    "short_name": "ABG Interpreter",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#fdfdfd",
+    "theme_color": "#000000",
+    "description": "Arterial Blood Gas Interpreter",
+    "icons": [
+        {
+        "src": "img/maskable_icon.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any maskable"
+        },
+        {
+        "src": "img/favicon.ico",
+        "type": "image/png", "sizes": "48x48"
+        },
+        {
+        "src": "img/abg-768x552.jpg",
+        "type": "image/png", "sizes": "265x265"
+        }
+    ]
+  }

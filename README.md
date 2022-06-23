@@ -1,2 +1,3 @@
 # ABG-Interpreter
-A simple web app to analyze arterial blood gas.
+
+A simple web app to analyze and interpret arterial blood gas and oxygenation.
