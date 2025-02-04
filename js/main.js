@@ -18,7 +18,10 @@ chk.addEventListener("change", () => {
 
 // oxygen gas analysis
 function oxy(pao2Value) {
-  if (pao2Value >= 80 && pao2Value <= 100) {
+  if (pao2Value >= 125)  {
+    return " with hyperoxia.";
+  }
+  else if (pao2Value >= 80 && pao2Value < 125) {
     return " with normal oxygenation.";
   } else if (pao2Value >= 60 && pao2Value <= 79) {
     return " with mild hypoxemia.";
